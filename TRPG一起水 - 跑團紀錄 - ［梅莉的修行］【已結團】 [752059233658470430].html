@@ -1,0 +1,2887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TRPG一起水 - ［梅莉的修行］【已結團】</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/e8acd7d9bf6207f99350ca9f9e23b168.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/3bdef1251a424500c1b3a78dea9b7e57.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/be0060dafb7a0e31d2a1ca17c0708636.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://cdn.discordapp.com/icons/690900516255039518/5f08661a72ea8ca3b660e9269e0e0102.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">TRPG一起水</div>
+        <div class="preamble__entry">跑團紀錄 / ［梅莉的修行］【已結團】</div>
+
+        <div class="preamble__entry preamble__entry--small">10歲蘿莉跟師父的相遇～</div>
+
+    </div>
+</div>
+
+<div class="chatlog">
+    <div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 02:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="752059345461837864" id="message-752059345461837864">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span> 可以說說師傅性格嗎</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 02:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="752059512260657212" id="message-752059512260657212">
+                <div class="chatlog__content">
+                    <div class="markdown">//<s>我沒想過</s>，讓我想想<span class="chatlog__edited-timestamp" title="06-Sep-20 02:56 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 02:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="752059560554004571" id="message-752059560554004571">
+                <div class="chatlog__content">
+                    <div class="markdown">//那我來想可以嗎</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 02:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="752059637133475893" id="message-752059637133475893">
+                <div class="chatlog__content">
+                    <div class="markdown">//好www</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 02:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="752059803232370818" id="message-752059803232370818">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到對面有一個人搬了過來</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752059933322903623" id="message-752059933322903623">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他似乎受了點傷</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752059941593939978" id="message-752059941593939978">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 02:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="752060499427852309" id="message-752060499427852309">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;嗯？這個人是新搬來的？&quot;小時候的梅莉好奇心爆棚，在對方搬過來的時候就偷偷湊到他家的窗戶八卦</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="752060637097623593" id="message-752060637097623593">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span> 你看到他膝蓋斯乎有點受傷<span class="chatlog__edited-timestamp" title="06-Sep-20 03:01 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="752061294391066634" id="message-752061294391066634">
+                <div class="chatlog__content">
+                    <div class="markdown">//<s>我覺得可以重傷多一點</s></div>
+                </div>
+
+
+
+                <div class="chatlog__reactions">
+                        <div class="chatlog__reaction">
+                            <img class="emoji emoji--small" alt="emoji_49" title="emoji_49" src="https://cdn.discordapp.com/emojis/749280307475120178.png">
+                            <span class="chatlog__reaction-count">2</span>
+                        </div>
+                </div>
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="752061584221798452" id="message-752061584221798452">
+                <div class="chatlog__content">
+                    <div class="markdown">//再多就是教個毛線了</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752061626907099136" id="message-752061626907099136">
+                <div class="chatlog__content">
+                    <div class="markdown">//你要走進去嗎</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="752061760717979688" id="message-752061760717979688">
+                <div class="chatlog__content">
+                    <div class="markdown">「欸……受傷了？」梅莉驚訝地小聲自然自語，不小心在窗戶冒了個頭<span class="chatlog__edited-timestamp" title="06-Sep-20 03:05 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="752061857866448946" id="message-752061857866448946">
+                <div class="chatlog__content">
+                    <div class="markdown">「是鄰居家的小鬼?」<span class="chatlog__edited-timestamp" title="06-Sep-20 03:05 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752061941895397476" id="message-752061941895397476">
+                <div class="chatlog__content">
+                    <div class="markdown">「我是你以後的鄰居」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="752062623184453632" id="message-752062623184453632">
+                <div class="chatlog__content">
+                    <div class="markdown">「嗯……欸？被被被、發現了？」梅莉嚇了一跳，從窗邊上跳了下來，然後害羞得像鴕鳥那樣抱頭原地蹲下，自己還是不懂為什麼會被對方發現</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752063083337482260" id="message-752063083337482260">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;姆……看不到我的看不到我的！我可是躲得好好的！！！&quot;</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752063186571755621" id="message-752063186571755621">
+                <div class="chatlog__content">
+                    <div class="markdown">//梅莉現在是10歲的蘿莉喔喔喔</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="752063335804960790" id="message-752063335804960790">
+                <div class="chatlog__content">
+                    <div class="markdown">「快進來吧，小鬼」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752063399008927785" id="message-752063399008927785">
+                <div class="chatlog__content">
+                    <div class="markdown">「我這裡有一些餅乾」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="752064124430712893" id="message-752064124430712893">
+                <div class="chatlog__content">
+                    <div class="markdown">「餅乾！！！！！」梅莉聽到關鍵的兩個字，立馬抬起頭頭，然後眼睛發光地跑了過去門口，在那邊露出個頭頭看了看屋內的環境，在看到桌子上的餅乾後，就直接跑了進去，<s>這個年紀太沒防備心了，怪不得會被拐走</s></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="752064393977790515" id="message-752064393977790515">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他露出好奇的眼神</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752064446230167675" id="message-752064446230167675">
+                <div class="chatlog__content">
+                    <div class="markdown">「小鬼，你的種族是啥」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752065200135340093" id="message-752065200135340093">
+                <div class="chatlog__content">
+                    <div class="markdown">//快寫<span class="chatlog__edited-timestamp" title="06-Sep-20 03:18 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="752065792300023808" id="message-752065792300023808">
+                <div class="chatlog__content">
+                    <div class="markdown">「父親說過……欸豆…………啊！梅莉是半人獸喔！！！」梅莉低頭思索了一下，然後下一瞬間就抬起來，散發著kirakira的光芒地説著，可是眼睛還是死死盯著餅乾</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="752065861312970803" id="message-752065861312970803">
+                <div class="chatlog__content">
+                    <div class="markdown">「你先吃吧」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752065924068147221" id="message-752065924068147221">
+                <div class="chatlog__content">
+                    <div class="markdown">說完，他丟給你一塊餅乾</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="752066122005872682" id="message-752066122005872682">
+                <div class="chatlog__content">
+                    <div class="markdown">「可、可以嗎？」雖然這樣說著，梅莉還是接住了餅乾，然後吃了，<s>還是吃完才問可不可以</s></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="752066255158247475" id="message-752066255158247475">
+                <div class="chatlog__content">
+                    <div class="markdown">「不過真稀奇」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752066349823688754" id="message-752066349823688754">
+                <div class="chatlog__content">
+                    <div class="markdown">「我冒險這麼久也沒看過半獸人頭髮是紫色的」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="752067129469042740" id="message-752067129469042740">
+                <div class="chatlog__content">
+                    <div class="markdown">「欸！！！梅莉我頭髮一直都是這個顏色哇？大哥哥是冒險家咪！！！」梅莉只有從鄰居的閒話中聽過冒險家這個詞語，她實際上還沒有見過，因此十分地，興奮，kirakira的光芒好像更亮了</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="752067270347456512" id="message-752067270347456512">
+                <div class="chatlog__content">
+                    <div class="markdown">「不過我倒是受了點傷」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752067328312868884" id="message-752067328312868884">
+                <div class="chatlog__content">
+                    <div class="markdown">他指了指他的膝蓋</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752067455249285151" id="message-752067455249285151">
+                <div class="chatlog__content">
+                    <div class="markdown">「我原本是一位冒險家，直到我膝蓋中了一箭」</div>
+                </div>
+
+
+
+                <div class="chatlog__reactions">
+                        <div class="chatlog__reaction">
+                            <img class="emoji emoji--small" alt="emoji_49" title="emoji_49" src="https://cdn.discordapp.com/emojis/749280307475120178.png">
+                            <span class="chatlog__reaction-count">3</span>
+                        </div>
+                </div>
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="752067598769979402" id="message-752067598769979402">
+                <div class="chatlog__content">
+                    <div class="markdown">//等等WWWWWW這句話很大麻</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="752067636849803305" id="message-752067636849803305">
+                <div class="chatlog__content">
+                    <div class="markdown">//梗圖聚集地<span class="chatlog__edited-timestamp" title="06-Sep-20 03:28 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752067719980908636" id="message-752067719980908636">
+                <div class="chatlog__content">
+                    <div class="markdown">//dnd跑團</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="752068098944794656" id="message-752068098944794656">
+                <div class="chatlog__content">
+                    <div class="markdown">「很、很痛嗎？我以前只有看過姨姨們切菜弄傷手手的說……」有點擔心地歪歪頭，然後看著他的傷口</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="752068228640931882" id="message-752068228640931882">
+                <div class="chatlog__content">
+                    <div class="markdown">「沒關西」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752068318260756510" id="message-752068318260756510">
+                <div class="chatlog__content">
+                    <div class="markdown">「不過你想要看看一些魔法嗎」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752068543293423677" id="message-752068543293423677">
+                <div class="chatlog__content">
+                    <div class="markdown">「小鬼」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="752069116801712128" id="message-752069116801712128">
+                <div class="chatlog__content">
+                    <div class="markdown">「魔……法？那是神麼？」梅莉住的地方都是一般的人類居多，從來沒聽過這個用詞，她的頭歪得更多了，頭上還帶著不少個問號</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="752069223207010416" id="message-752069223207010416">
+                <div class="chatlog__content">
+                    <div class="markdown">「你去拿一點木頭放在前面」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752069275627552820" id="message-752069275627552820">
+                <div class="chatlog__content">
+                    <div class="markdown">「我就給你看」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="752069982745001984" id="message-752069982745001984">
+                <div class="chatlog__content">
+                    <div class="markdown">「嗯！我這就去，大葛格等我一下哇！！！」梅莉的好奇心又再次爆發了，誰叫未知的東西那麼有吸引力呢？她立刻跑跑跑回家裡，在爐子旁邊拿了三塊木頭，再半跑回冒險家大哥哥的家，對小小隻的她來說這點木頭已經是她能搬到的極限了<span class="chatlog__edited-timestamp" title="06-Sep-20 03:38 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="752070318876786830" id="message-752070318876786830">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他比了手勢並且說了一句奇怪的話後</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752070350959018027" id="message-752070350959018027">
+                <div class="chatlog__content">
+                    <div class="markdown">火焰突然升起</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752071127232282745" id="message-752071127232282745">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span> 換你<span class="chatlog__edited-timestamp" title="06-Sep-20 03:42 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="752071801151946752" id="message-752071801151946752">
+                <div class="chatlog__content">
+                    <div class="markdown">「噢喔喔喔喔！！！！大哥哥好厲害！！！」梅莉被突然冒出的火嚇了一下，然後驚訝地看著那些火焰</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752071843074277496" id="message-752071843074277496">
+                <div class="chatlog__content">
+                    <div class="markdown">//表情如這個</div>
+                </div>
+
+                <div class="chatlog__attachment">
+                    
+                    <a href="https://cdn.discordapp.com/attachments/752059233658470430/752071842742665276/73004005_2478684132378850_4137294167480991744_n.jpg">
+                        
+                            <img class="chatlog__attachment-thumbnail" src="https://cdn.discordapp.com/attachments/752059233658470430/752071842742665276/73004005_2478684132378850_4137294167480991744_n.jpg" alt="Attachment">
+                    </a>
+                </div>
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="752072161073823806" id="message-752072161073823806">
+                <div class="chatlog__content">
+                    <div class="markdown">「這還不是最驚奇的」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752072198310854750" id="message-752072198310854750">
+                <div class="chatlog__content">
+                    <div class="markdown">「想要聽個故事嗎」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="752072318678728744" id="message-752072318678728744">
+                <div class="chatlog__content">
+                    <div class="markdown">「嗯嗯嗯！！！！」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="752072679946977351" id="message-752072679946977351">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到火焰裡面出現了一個模糊的人影</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752072713635496067" id="message-752072713635496067">
+                <div class="chatlog__content">
+                    <div class="markdown">「從前從前」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752072832045023312" id="message-752072832045023312">
+                <div class="chatlog__content">
+                    <div class="markdown">「有一群人為了保護大眾而出去冒險」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752072952962351115" id="message-752072952962351115">
+                <div class="chatlog__content">
+                    <div class="markdown">「他們做了許多好事被人民所歌頌」<span class="chatlog__edited-timestamp" title="06-Sep-20 03:49 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073032725692448" id="message-752073032725692448">
+                <div class="chatlog__content">
+                    <div class="markdown">「在一次任務時」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073061557207100" id="message-752073061557207100">
+                <div class="chatlog__content">
+                    <div class="markdown">「發生了意外」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073119509774397" id="message-752073119509774397">
+                <div class="chatlog__content">
+                    <div class="markdown">「有人中了一箭」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073196009685075" id="message-752073196009685075">
+                <div class="chatlog__content">
+                    <div class="markdown">「但他們還是打倒了邪惡的魔王」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="752073273780469830" id="message-752073273780469830">
+                <div class="chatlog__content">
+                    <div class="markdown">屏氣地聽著哥哥說故事.jpg</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="752073304981897276" id="message-752073304981897276">
+                <div class="chatlog__content">
+                    <div class="markdown">「那位膝蓋受傷的只能在這裡休養」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073350842417153" id="message-752073350842417153">
+                <div class="chatlog__content">
+                    <div class="markdown">「等待世界需要他的時候」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073444505419817" id="message-752073444505419817">
+                <div class="chatlog__content">
+                    <div class="markdown">//換你</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752073462150987796" id="message-752073462150987796">
+                <div class="chatlog__content">
+                    <div class="markdown">//說完了</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="752073780507181077" id="message-752073780507181077">
+                <div class="chatlog__content">
+                    <div class="markdown">「那個人就是大哥哥吧！還有大哥哥好厲害！！！！」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="752073939601326142" id="message-752073939601326142">
+                <div class="chatlog__content">
+                    <div class="markdown">「沒錯」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="752074038557278218" id="message-752074038557278218">
+                <div class="chatlog__content">
+                    <div class="markdown">「那大哥哥之後也要去拯救世界嗎？」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="752074227477250088" id="message-752074227477250088">
+                <div class="chatlog__content">
+                    <div class="markdown">「對」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752074316446957642" id="message-752074316446957642">
+                <div class="chatlog__content">
+                    <div class="markdown">「但要等有人找到能完全治好我的人」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/477797122511732737/ae4eac08b968398c1b369500fc543d8f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tangerine#1811" data-user-id="477797122511732737"  style="color: rgb(230, 126, 34)" >砂金橙石油王 橘子</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="752074633536077856" id="message-752074633536077856">
+                <div class="chatlog__content">
+                    <div class="markdown">//膝蓋上的箭那麽毒嗎<img class="emoji " alt="emoji_49" title="emoji_49" src="https://cdn.discordapp.com/emojis/749280307475120178.png"></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="752074731003314237" id="message-752074731003314237">
+                <div class="chatlog__content">
+                    <div class="markdown">「不能包紮一下咪？梅莉可是有替過附近受傷的小孩包紮傷口噠！！！」梅莉用著莫名的自信拍拍胸口</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="752074978769502210" id="message-752074978769502210">
+                <div class="chatlog__content">
+                    <div class="markdown">「不用了」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/521295671987273728/5be117c63591c7fbed999f50b549f7ab.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="麼法gunja#1729" data-user-id="521295671987273728"  style="color: rgb(46, 204, 113)" >:D</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="752075016874491905" id="message-752075016874491905">
+                <div class="chatlog__content">
+                    <div class="markdown">//我曾經也是個勇者 直到我的頭腦中了一劍</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 03:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="752075062877749277" id="message-752075062877749277">
+                <div class="chatlog__content">
+                    <div class="markdown">「那隻箭上面有一些魔法能量」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752075151880749076" id="message-752075151880749076">
+                <div class="chatlog__content">
+                    <div class="markdown">「會腐蝕我的肌肉」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752075264137363517" id="message-752075264137363517">
+                <div class="chatlog__content">
+                    <div class="markdown">「如果沒有馬上拔出來，我就會少掉一條腿了」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="752075642660585514" id="message-752075642660585514">
+                <div class="chatlog__content">
+                    <div class="markdown">「好、好危險的感jio！」吞了吞口水，因為對方刺激的遭遇而感到緊張，同時還在擔心對方的傷勢</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="752075826471764028" id="message-752075826471764028">
+                <div class="chatlog__content">
+                    <div class="markdown">「算了」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752075864619089950" id="message-752075864619089950">
+                <div class="chatlog__content">
+                    <div class="markdown">「所以你要回去了嗎」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752075924907884595" id="message-752075924907884595">
+                <div class="chatlog__content">
+                    <div class="markdown">「你父母應該在叫你吃晚餐了」<span class="chatlog__edited-timestamp" title="06-Sep-20 04:01 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="752076311702536282" id="message-752076311702536282">
+                <div class="chatlog__content">
+                    <div class="markdown">「嗯……拔拔麻麻不在了……拔拔説麻麻去了很遠很遠的地方，不會再回來了，然後拔拔也沒回家了……」<span class="chatlog__edited-timestamp" title="06-Sep-20 04:03 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="752076713189441567" id="message-752076713189441567">
+                <div class="chatlog__content">
+                    <div class="markdown">「好吧」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752076781301006456" id="message-752076781301006456">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他沒有絲毫驚訝<span class="chatlog__edited-timestamp" title="06-Sep-20 04:04 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752076839345717369" id="message-752076839345717369">
+                <div class="chatlog__content">
+                    <div class="markdown">「那要去打獵嗎」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="752077875502383184" id="message-752077875502383184">
+                <div class="chatlog__content">
+                    <div class="markdown">「要、離開家裡？」梅莉有點緊張的樣子，自己一直都是住在這裡，之前都是靠幫鄰居做事然後分到一些食物，更早之前還是用父親留下來的錢買食物來吃，不過後來想存下錢就選擇了用勞力換取食物</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="752078124153569311" id="message-752078124153569311">
+                <div class="chatlog__content">
+                    <div class="markdown">「只是在旁邊看看而已」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752078157275725874" id="message-752078157275725874">
+                <div class="chatlog__content">
+                    <div class="markdown">「不會怎樣」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752078236145680434" id="message-752078236145680434">
+                <div class="chatlog__content">
+                    <div class="markdown">「你先被我背著吧」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752078286317813822" id="message-752078286317813822">
+                <div class="chatlog__content">
+                    <div class="markdown">說完，他指了指他的背</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="752078871360176149" id="message-752078871360176149">
+                <div class="chatlog__content">
+                    <div class="markdown">「好！可是……大哥哥的腳……梅莉可以自己走的！」她再次被好奇心騙走，不過擔心哥哥的傷勢惡化</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="752079081117450253" id="message-752079081117450253">
+                <div class="chatlog__content">
+                    <div class="markdown">//所以有爬上去嗎</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="752079345694146621" id="message-752079345694146621">
+                <div class="chatlog__content">
+                    <div class="markdown">//遲疑中，沒爬</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="752079470306787398" id="message-752079470306787398">
+                <div class="chatlog__content">
+                    <div class="markdown">「這樣趕路比較快，快點」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="752079888399204352" id="message-752079888399204352">
+                <div class="chatlog__content">
+                    <div class="markdown">「好……」梅莉小心地爬上了對方的背上</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="752080015847325736" id="message-752080015847325736">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他的腳懸浮在了空中</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="752080189470801941" id="message-752080189470801941">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;！！！！這是在飛？&quot;梅莉心裡想著，緊緊地盯著地面</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="752080770386100286" id="message-752080770386100286">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他飛往了森林裡<span class="chatlog__edited-timestamp" title="06-Sep-20 04:20 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752080858038665287" id="message-752080858038665287">
+                <div class="chatlog__content">
+                    <div class="markdown">「要我跟你說說魔法的常識嗎」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="752081111227826176" id="message-752081111227826176">
+                <div class="chatlog__content">
+                    <div class="markdown">「好哇！！！」好奇心寶寶怎麼會有不接受的道理？:D</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="752081487393849356" id="message-752081487393849356">
+                <div class="chatlog__content">
+                    <div class="markdown">「我現在施放的是變化系魔法」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752081605291671572" id="message-752081605291671572">
+                <div class="chatlog__content">
+                    <div class="markdown">「它可以使人變成動物或獲得能力」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752081653446213673" id="message-752081653446213673">
+                <div class="chatlog__content">
+                    <div class="markdown">「也可以把石頭變成金子」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="752082202027753512" id="message-752082202027753512">
+                <div class="chatlog__content">
+                    <div class="markdown">「好方便！！！要是有魔法的話我就可以變出很多很多的食物！」梅莉很嗨，把雙手高高的舉了起來</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="752082687350669342" id="message-752082687350669342">
+                <div class="chatlog__content">
+                    <div class="markdown">「但那是專職法師才有，並且做出的東西也能為持一下子」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="752083164595355771" id="message-752083164595355771">
+                <div class="chatlog__content">
+                    <div class="markdown">「欸——所以不能吃嘛……我還想學學魔法的說……」梅莉又放下了舉著的手手，搭在了大哥哥的肩膀上</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="752083600425484288" id="message-752083600425484288">
+                <div class="chatlog__content">
+                    <div class="markdown">「這東西還是很方便的」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752083676216688731" id="message-752083676216688731">
+                <div class="chatlog__content">
+                    <div class="markdown">「你看看，我們不是是在天空之上嗎」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752083772584755252" id="message-752083772584755252">
+                <div class="chatlog__content">
+                    <div class="markdown">「其實我剛剛在說故事時用的魔法也是塑能」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752083853853589555" id="message-752083853853589555">
+                <div class="chatlog__content">
+                    <div class="markdown">「那也可以改變一些東西」<span class="chatlog__edited-timestamp" title="06-Sep-20 04:35 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752084567933845646" id="message-752084567933845646">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span> 換你</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="752084790144008253" id="message-752084790144008253">
+                <div class="chatlog__content">
+                    <div class="markdown">「這樣看也是很好用的感覺！要是可以飛去找拔拔就好了！」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="752085114846052362" id="message-752085114846052362">
+                <div class="chatlog__content">
+                    <div class="markdown">「可以用預言魔法」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752085154310389840" id="message-752085154310389840">
+                <div class="chatlog__content">
+                    <div class="markdown">「他可以讓你知道未來」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="752085341258907758" id="message-752085341258907758">
+                <div class="chatlog__content">
+                    <div class="markdown">「學魔法很難嗎？窩不知道這種東西……也沒學過……」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="752085718729228338" id="message-752085718729228338">
+                <div class="chatlog__content">
+                    <div class="markdown">「努力學，也是可以有一點出息的」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752086999812276275" id="message-752086999812276275">
+                <div class="chatlog__content">
+                    <div class="markdown">「不過我是一位戰士」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="752087343963439184" id="message-752087343963439184">
+                <div class="chatlog__content">
+                    <div class="markdown">「戰士？是用那些很酷的武器的人嗎？」<span class="chatlog__edited-timestamp" title="06-Sep-20 04:46 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="752087822672068608" id="message-752087822672068608">
+                <div class="chatlog__content">
+                    <div class="markdown">「對」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752087879236452372" id="message-752087879236452372">
+                <div class="chatlog__content">
+                    <div class="markdown">「我是副修法術的」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752088534696853524" id="message-752088534696853524">
+                <div class="chatlog__content">
+                    <div class="markdown">//換你</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 04:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="752090313082011688" id="message-752090313082011688">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="752108727401709628" id="message-752108727401709628">
+                <div class="chatlog__content">
+                    <div class="markdown">「可以兩種都用？大哥哥好強！！！！如果……我可以像你那樣強我就可以去保護附近的小孩了！他們雖然也沒有家人和錢可是也不應該要受人欺壓哇！」
+梅莉氣呼呼地説著
+//生氣氣der表情<img class="emoji " alt="31" title="31" src="https://cdn.discordapp.com/emojis/739359131126726728.png"></div>
+                </div>
+
+                <div class="chatlog__attachment">
+                    
+                    <a href="https://cdn.discordapp.com/attachments/752059233658470430/752108727175479306/05s3nr5385o54qr0937389p64r7r05o6.jpg">
+                        
+                            <img class="chatlog__attachment-thumbnail" src="https://cdn.discordapp.com/attachments/752059233658470430/752108727175479306/05s3nr5385o54qr0937389p64r7r05o6.jpg" alt="Attachment">
+                    </a>
+                </div>
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="752108882779963393" id="message-752108882779963393">
+                <div class="chatlog__content">
+                    <div class="markdown">「你連拿劍的能力都沒有」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752108934378029166" id="message-752108934378029166">
+                <div class="chatlog__content">
+                    <div class="markdown">「現在就是好好看，好好學」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="752109567848087644" id="message-752109567848087644">
+                <div class="chatlog__content">
+                    <div class="markdown">「我要跟著你學習……？這就是所謂的老師？！！！✨ 」梅莉曾經聽過那些貴族小孩可以有一個老師跟著學習，不過像她這種平凡小孩是沒有試過的</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="752109984543801374" id="message-752109984543801374">
+                <div class="chatlog__content">
+                    <div class="markdown">「如果你想要也可以」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752110023982841887" id="message-752110023982841887">
+                <div class="chatlog__content">
+                    <div class="markdown">「反正我正好也很閒」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="752110094564589568" id="message-752110094564589568">
+                <div class="chatlog__content">
+                    <div class="markdown">//<s>麻煩請你rp更正我叫師父</s></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="752110200000872578" id="message-752110200000872578">
+                <div class="chatlog__content">
+                    <div class="markdown">//我還好</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752110685235707944" id="message-752110685235707944">
+                <div class="chatlog__content">
+                    <div class="markdown">//請繼續</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752110899648528516" id="message-752110899648528516">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="我是可愛帥氣的慧#4596">@我是擁有了師父的徒弟 慧</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="752111366298533939" id="message-752111366298533939">
+                <div class="chatlog__content">
+                    <div class="markdown">「欸欸欸！真的可以嗎！可以嗎！！！」kirakira光芒再度出現</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752111569537728543" id="message-752111569537728543">
+                <div class="chatlog__content">
+                    <div class="markdown">「我一定會認真學習噠！！！！」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/422393403360280576/68798c591dc6644cc46edd2f1ddb8368.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Silvara_Lostory#3594" data-user-id="422393403360280576"  style="color: rgb(233, 30, 99)" >二五仔契術師 絡世託依</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="752111656750022727" id="message-752111656750022727">
+                <div class="chatlog__content">
+                    <div class="markdown">//「反正我很閒」？wwwww<span class="chatlog__edited-timestamp" title="06-Sep-20 06:23 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="752111721400762408" id="message-752111721400762408">
+                <div class="chatlog__content">
+                    <div class="markdown">「那你先學如何揮劍跟魔法基本知識好了」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="752111819203543080" id="message-752111819203543080">
+                <div class="chatlog__content">
+                    <div class="markdown">「嗯！好！！！！」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="752111972501160008" id="message-752111972501160008">
+                <div class="chatlog__content">
+                    <div class="markdown">「但你法術要很久以後才會學會」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="752111984417308752" id="message-752111984417308752">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">//我還好
+</div>//小孩就是不太會太多詞彙，所以就想請你更正梅莉</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="752112085521006633" id="message-752112085521006633">
+                <div class="chatlog__content">
+                    <div class="markdown">//可以別給我額外負擔嗎</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752112133382209598" id="message-752112133382209598">
+                <div class="chatlog__content">
+                    <div class="markdown">//dm表示很累</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="752112165376491590" id="message-752112165376491590">
+                <div class="chatlog__content">
+                    <div class="markdown">//噢抱歉</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="752112405193949261" id="message-752112405193949261">
+                <div class="chatlog__content">
+                    <div class="markdown">然後你就開始跟他學習並且修練的生活</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752112487540719686" id="message-752112487540719686">
+                <div class="chatlog__content">
+                    <div class="markdown">同時也立下要當模能騎士的志向</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752112555585175642" id="message-752112555585175642">
+                <div class="chatlog__content">
+                    <div class="markdown">不過有一天他告訴你他要走了</div>
+                </div>
+
+
+
+                <div class="chatlog__reactions">
+                        <div class="chatlog__reaction">
+                            <img class="emoji emoji--small" alt="35" title="35" src="https://cdn.discordapp.com/emojis/739365168286269471.png">
+                            <span class="chatlog__reaction-count">1</span>
+                        </div>
+                </div>
+            </div>
+            <div class="chatlog__message " data-message-id="752112585809330318" id="message-752112585809330318">
+                <div class="chatlog__content">
+                    <div class="markdown">他有重要的任務</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752113770653941871" id="message-752113770653941871">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到他把一把刀丟了過來</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752113855974473849" id="message-752113855974473849">
+                <div class="chatlog__content">
+                    <div class="markdown">上面有細緻的咒文</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752113912811487303" id="message-752113912811487303">
+                <div class="chatlog__content">
+                    <div class="markdown">「這是離別的禮物，小鬼」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="752114626141093939" id="message-752114626141093939">
+                <div class="chatlog__content">
+                    <div class="markdown">「這個劍，給我……？這是你很重要的劍吧？」梅莉有點緊張地說著，不過還是小心地接過劍</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="752114777509068870" id="message-752114777509068870">
+                <div class="chatlog__content">
+                    <div class="markdown">「雖然是，但我更想把他給我的徒弟」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 06:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="752115461126094868" id="message-752115461126094868">
+                <div class="chatlog__content">
+                    <div class="markdown">「……我明白了！徒兒會好好珍惜這把劍的！」梅莉向著他90度鞠躬道謝</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752115511185375240" id="message-752115511185375240">
+                <div class="chatlog__content">
+                    <div class="markdown">「也請師父路上小心！」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-20 07:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="752122562963701840" id="message-752122562963701840">
+                <div class="chatlog__content">
+                    <div class="markdown">梅莉跟師父道別後，便堅守著師父所教授的知識，每天一直保持練習，只不過她感受到自己還沒有足夠的能力可以去使用這把劍，她雖然把劍放在床邊的位置，不過還是會每天保養著，把它當成自己的護身符，感覺師父的靈魂與自己同在。
+
+「你要去冒險者公會接任務嗎？」
+「好的！我去看看！」
+有一天附近的鄰居推薦了她去接任務賺錢，畢竟她現在已經年紀不小，也有了戰鬥的實力，還一直替別人打工換飯簡直是大材小用
+梅莉背起了她的裝備，包括師父留下的劍，便前往了冒險者公會，新的冒險即將開始！！！</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 155 message(s)</div>
+</div>
+
+</body>
+</html>

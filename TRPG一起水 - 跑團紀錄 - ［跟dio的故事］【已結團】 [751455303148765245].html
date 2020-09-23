@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TRPG一起水 - ［跟dio的故事］【已結團】</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/e8acd7d9bf6207f99350ca9f9e23b168.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/3bdef1251a424500c1b3a78dea9b7e57.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/be0060dafb7a0e31d2a1ca17c0708636.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://cdn.discordapp.com/icons/690900516255039518/5f08661a72ea8ca3b660e9269e0e0102.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">TRPG一起水</div>
+        <div class="preamble__entry">跑團紀錄 / ［跟dio的故事］【已結團】</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+    <div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/422393403360280576/68798c591dc6644cc46edd2f1ddb8368.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Silvara_Lostory#3594" data-user-id="422393403360280576"  style="color: rgb(233, 30, 99)" >二五仔契術師 絡世託依</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 10:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="751456274675138691" id="message-751456274675138691">
+                <div class="chatlog__content">
+                    <div class="markdown">//前排圍觀即將與dio一同降臨的卡莉雅特</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/729255790229061742/78e8075e33d4ab5f36d2fe3978357420.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="りんご飴#5127" data-user-id="729255790229061742"  style="color: rgb(155, 89, 182)" >＋666潛水特化加成 渣餅</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 10:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="751456413213130773" id="message-751456413213130773">
+                <div class="chatlog__content">
+                    <div class="markdown">//<img class="emoji " alt="12" title="12" src="https://cdn.discordapp.com/emojis/739094145968111660.png"></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 11:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="751456545686028380" id="message-751456545686028380">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="Silvara_Lostory#3594">@二五仔契術師 絡世託依</span> 這是類似故事之類的東西</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/499507523905257477/4549a1dc1e550301faf4a2ea8e6373b2.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="我是可愛帥氣的慧#4596" data-user-id="499507523905257477"  style="color: rgb(233, 30, 99)" >我是擁有了師父的徒弟 慧</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 11:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="751456574542971084" id="message-751456574542971084">
+                <div class="chatlog__content">
+                    <div class="markdown">//<img class="emoji " alt="12" title="12" src="https://cdn.discordapp.com/emojis/739094145968111660.png"></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 11:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="751457798218317987" id="message-751457798218317987">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 你是如何搶劫的</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 11:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="751458904650678424" id="message-751458904650678424">
+                <div class="chatlog__content">
+                    <div class="markdown">卡莉雅特將身子縮在衣服裡，把自己的存在感縮到最小，同時睜大眼睛觀察著來往的行人。
+她最後選擇了一個單獨行動的男子，在對方走進巷子之後就以最快的速度伸手抓取他的行李！</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 08:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="751597563169341442" id="message-751597563169341442">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 有空叫我</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/544462904037081138/826b76664e4c68ff4d29076c48a02bed.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="HKTRPG#4989" data-user-id="544462904037081138" >不皮一下不快樂的骰娘女神殿下</span>
+
+        <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">05-Sep-20 08:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="751597563928379494" id="message-751597563928379494">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="waganda#7905">@歐黃</span>
+恭喜你又水過一級了！</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 08:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="751607082154983514" id="message-751607082154983514">
+                <div class="chatlog__content">
+                    <div class="markdown">// <span class="mention" title="waganda#7905">@歐黃</span> 我起床了</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="751607566043185222" id="message-751607566043185222">
+                <div class="chatlog__content">
+                    <div class="markdown">你成功拿到了錢包</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751607602630230046" id="message-751607602630230046">
+                <div class="chatlog__content">
+                    <div class="markdown">要跑走嗎<span class="chatlog__edited-timestamp" title="05-Sep-20 09:00 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="751607844020813886" id="message-751607844020813886">
+                <div class="chatlog__content">
+                    <div class="markdown">我安靜的往陰影處離開</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="751608070840385647" id="message-751608070840385647">
+                <div class="chatlog__content">
+                    <div class="markdown">等你到很遠的一個小巷時</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751608132668620923" id="message-751608132668620923">
+                <div class="chatlog__content">
+                    <div class="markdown">你被警察攔住了</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751608348637659137" id="message-751608348637659137">
+                <div class="chatlog__content">
+                    <div class="markdown">「終於抓到你這個慣犯了」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751608431558787202" id="message-751608431558787202">
+                <div class="chatlog__content">
+                    <div class="markdown">說完，他一把抓起了你的手</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="751608784333570109" id="message-751608784333570109">
+                <div class="chatlog__content">
+                    <div class="markdown">「你在說什麼呢，我完全聽不懂。」我嘗試掙開警察的手</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="751608950251716660" id="message-751608950251716660">
+                <div class="chatlog__content">
+                    <div class="markdown">由與體型力量差異巨大，你掙脫不開他的手</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751609077657763900" id="message-751609077657763900">
+                <div class="chatlog__content">
+                    <div class="markdown">你身上的錢包也被他一把拿了出來</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751609204300840960" id="message-751609204300840960">
+                <div class="chatlog__content">
+                    <div class="markdown">「錢可真多，可以讓人好好吃上一頓了呢」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="751609623047438367" id="message-751609623047438367">
+                <div class="chatlog__content">
+                    <div class="markdown">//我想直接打他w但是體型力量好像會有劣勢w</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="751609812315406386" id="message-751609812315406386">
+                <div class="chatlog__content">
+                    <div class="markdown">//一個小孩要跟警察打架好像是不可能的事<span class="chatlog__edited-timestamp" title="05-Sep-20 09:09 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="751609907593216011" id="message-751609907593216011">
+                <div class="chatlog__content">
+                    <div class="markdown">我悄悄拿出短劍，準備在他失去戒心，時候搶回錢包並逃跑</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751610176540246049" id="message-751610176540246049">
+                <div class="chatlog__content">
+                    <div class="markdown">//可是他搶我東西欸<img class="emoji " alt="35" title="35" src="https://cdn.discordapp.com/emojis/739365168286269471.png"> 以她的個性不會想吃虧</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="751610271730237601" id="message-751610271730237601">
+                <div class="chatlog__content">
+                    <div class="markdown">你背後突然也出現了一個警察</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751610360804671588" id="message-751610360804671588">
+                <div class="chatlog__content">
+                    <div class="markdown">他用身上的短棍狠狠地毆打了你</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751610512462053476" id="message-751610512462053476">
+                <div class="chatlog__content">
+                    <div class="markdown">這突如奇來的攻擊讓你連短劍都無法拔出</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751610602497114263" id="message-751610602497114263">
+                <div class="chatlog__content">
+                    <div class="markdown">「你以為我們不知道你身上帶著武器嗎?」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="751611283442368522" id="message-751611283442368522">
+                <div class="chatlog__content">
+                    <div class="markdown">「痛⋯可惡⋯⋯」我帶著怨恨的眼神看著前面這兩位警察。想要拿回錢包是不可能了吧，但是總可以找機會逃跑。</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="751611531346837566" id="message-751611531346837566">
+                <div class="chatlog__content">
+                    <div class="markdown">第二位警察突然把你踢倒</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751611586015264869" id="message-751611586015264869">
+                <div class="chatlog__content">
+                    <div class="markdown">你知道，逃跑是不可能的</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751611687295254599" id="message-751611687295254599">
+                <div class="chatlog__content">
+                    <div class="markdown">「想跑?我們可是正義的警察啊」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="751611808254787604" id="message-751611808254787604">
+                <div class="chatlog__content">
+                    <div class="markdown">//<img class="emoji " alt="8_" title="8_" src="https://cdn.discordapp.com/emojis/744200831255183421.png"> <img class="emoji " alt="8_" title="8_" src="https://cdn.discordapp.com/emojis/744200831255183421.png"> <img class="emoji " alt="8_" title="8_" src="https://cdn.discordapp.com/emojis/744200831255183421.png"></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751612005302927431" id="message-751612005302927431">
+                <div class="chatlog__content">
+                    <div class="markdown">「正義的警察會搶一個小孩子的錢包嗎？」我帶著不滿的情緒問道</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="751612115776962651" id="message-751612115776962651">
+                <div class="chatlog__content">
+                    <div class="markdown">「我們只是需要一點點錢呢」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751612200732459068" id="message-751612200732459068">
+                <div class="chatlog__content">
+                    <div class="markdown">「你知要把妳偷到的東西分給我們」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751612246311829505" id="message-751612246311829505">
+                <div class="chatlog__content">
+                    <div class="markdown">「我們就不會找你麻煩」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="751612901437210726" id="message-751612901437210726">
+                <div class="chatlog__content">
+                    <div class="markdown">「我如果分錢給你們，你們以後就不會再找我麻煩了？」我換做嘗試與他們談條件</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="751613177959284818" id="message-751613177959284818">
+                <div class="chatlog__content">
+                    <div class="markdown">你發現從他們口中說出的利潤分成讓你連飯的都吃不了</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751613245067886653" id="message-751613245067886653">
+                <div class="chatlog__content">
+                    <div class="markdown">那一點錢甚至連一個麵包都不夠買</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="751614564852039810" id="message-751614564852039810">
+                <div class="chatlog__content">
+                    <div class="markdown">「大哥，你們這也太坑了吧。」我數了數錢，要是真的給他們我連下一餐都沒得吃了「先欠著行嗎？」
+這就叫做以空間換取時間，大不了以後都不要過來這附近。</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="751614890182967296" id="message-751614890182967296">
+                <div class="chatlog__content">
+                    <div class="markdown">他們握住你的手，並且在你的手上帶了一個手環</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751614935770988636" id="message-751614935770988636">
+                <div class="chatlog__content">
+                    <div class="markdown">「這是給你的禮物」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="751615003492089876" id="message-751615003492089876">
+                <div class="chatlog__content">
+                    <div class="markdown">//靠⋯⋯<img class="emoji " alt="8_" title="8_" src="https://cdn.discordapp.com/emojis/744200831255183421.png"></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="751615060299743232" id="message-751615060299743232">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">//靠⋯⋯<img class="emoji " alt="8_" title="8_" src="https://cdn.discordapp.com/emojis/744200831255183421.png">
+</div>//<span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 怎麼了</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="751615344581410827" id="message-751615344581410827">
+                <div class="chatlog__content">
+                    <div class="markdown">//沒事，總感覺是某種追蹤裝置</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="751615426638905409" id="message-751615426638905409">
+                <div class="chatlog__content">
+                    <div class="markdown">說完，他按下了手邊的按鈕</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751615499112022097" id="message-751615499112022097">
+                <div class="chatlog__content">
+                    <div class="markdown">你突然感覺一陣電流通過了你的身體</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751615570788745336" id="message-751615570788745336">
+                <div class="chatlog__content">
+                    <div class="markdown">你無法動彈</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751615629043302511" id="message-751615629043302511">
+                <div class="chatlog__content">
+                    <div class="markdown">「這是給你裝的裝置」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751615682218688552" id="message-751615682218688552">
+                <div class="chatlog__content">
+                    <div class="markdown">「別以為我不知道你想要逃跑」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="751616420986486835" id="message-751616420986486835">
+                <div class="chatlog__content">
+                    <div class="markdown">“果真是被控制得死死的啊⋯⋯不過不照著他們的話做會被打死的吧！還是保命要緊”我這麼想著，但是還是說「我怎麼可能會逃跑呢？」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="751616605078814781" id="message-751616605078814781">
+                <div class="chatlog__content">
+                    <div class="markdown">你看到那個被你搶劫的男子走了過來</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751616662653894717" id="message-751616662653894717">
+                <div class="chatlog__content">
+                    <div class="markdown">「我覺得你們認錯人了」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751616722452348998" id="message-751616722452348998">
+                <div class="chatlog__content">
+                    <div class="markdown">「那個錢包是我送給他的」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751616840505229413" id="message-751616840505229413">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 你記得這小巷幾乎沒有人知道</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751616864668614736" id="message-751616864668614736">
+                <div class="chatlog__content">
+                    <div class="markdown">人煙稀少</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/422393403360280576/68798c591dc6644cc46edd2f1ddb8368.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Silvara_Lostory#3594" data-user-id="422393403360280576"  style="color: rgb(233, 30, 99)" >二五仔契術師 絡世託依</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="751617275261616218" id="message-751617275261616218">
+                <div class="chatlog__content">
+                    <div class="markdown">//這倆警察三年起步<img class="emoji " alt="🤨" title="🤨" src="https://twemoji.maxcdn.com/2/72x72/1f928.png"></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="751617300016398380" id="message-751617300016398380">
+                <div class="chatlog__content">
+                    <div class="markdown">你同時也看到警察走了過去</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751617373638885397" id="message-751617373638885397">
+                <div class="chatlog__content">
+                    <div class="markdown">「不好意思，先生」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751617410297102366" id="message-751617410297102366">
+                <div class="chatlog__content">
+                    <div class="markdown">「我正在辦正事」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751617449845325834" id="message-751617449845325834">
+                <div class="chatlog__content">
+                    <div class="markdown">「別打擾我們」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751617648919576709" id="message-751617648919576709">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 你有要幹嘛嗎<span class="chatlog__edited-timestamp" title="05-Sep-20 09:41 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="751618623738609716" id="message-751618623738609716">
+                <div class="chatlog__content">
+                    <div class="markdown">雖然有些驚訝，但還是順著那個男子的話對警察說「是啊，這錢包本來就是他自己要給我的，你們這樣污衊良民，小心我吉了你們。」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751618712729157663" id="message-751618712729157663">
+                <div class="chatlog__content">
+                    <div class="markdown">一邊說著一邊偷偷觀察來幫我的男子。</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:45 AM</span>
+
+            <div class="chatlog__message " data-message-id="751619101503520839" id="message-751619101503520839">
+                <div class="chatlog__content">
+                    <div class="markdown">警察把你踢倒在地讓你閉嘴</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751619219879362632" id="message-751619219879362632">
+                <div class="chatlog__content">
+                    <div class="markdown">你同時也看到那個男人露出了不爽的臉</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751619341752991755" id="message-751619341752991755">
+                <div class="chatlog__content">
+                    <div class="markdown">警察跟他說「我們是在做正事請你離開」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751619554454667354" id="message-751619554454667354">
+                <div class="chatlog__content">
+                    <div class="markdown">不過你看到男人突然用拳頭一拳把警察打翻在地</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751619665381556345" id="message-751619665381556345">
+                <div class="chatlog__content">
+                    <div class="markdown">男人說「抱歉，我就是要插手」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="751619877843894352" id="message-751619877843894352">
+                <div class="chatlog__content">
+                    <div class="markdown">//我現在還能動嗎？那個手環還有沒有作用？</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 09:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="751620371433652276" id="message-751620371433652276">
+                <div class="chatlog__content">
+                    <div class="markdown">看到警察被打倒在地時</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751620472306794596" id="message-751620472306794596">
+                <div class="chatlog__content">
+                    <div class="markdown">另一個警察拿出刀子砍向男人</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751620534311321632" id="message-751620534311321632">
+                <div class="chatlog__content">
+                    <div class="markdown">但男人沒有絲毫要躲閃的意思</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751621575165345843" id="message-751621575165345843">
+                <div class="chatlog__content">
+                    <div class="markdown">你聽到他大喊了一聲</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751621629209214987" id="message-751621629209214987">
+                <div class="chatlog__content">
+                    <div class="markdown">「ZA-WORLD」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751621969107091466" id="message-751621969107091466">
+                <div class="chatlog__content">
+                    <div class="markdown">你發現你跟警察都無法動彈</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751622049503510599" id="message-751622049503510599">
+                <div class="chatlog__content">
+                    <div class="markdown">接著他也以一拳打暈了警察</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751622123713462322" id="message-751622123713462322">
+                <div class="chatlog__content">
+                    <div class="markdown">然後你突然覺得你可以動了</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751622168894242827" id="message-751622168894242827">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 你要說甚麼</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="751624111247327253" id="message-751624111247327253">
+                <div class="chatlog__content">
+                    <div class="markdown">「那個、謝謝你了，你的東西還給你吧，但是我能問問為什麼要幫我嗎？」我觀察著男子的表情</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="751624338884788286" id="message-751624338884788286">
+                <div class="chatlog__content">
+                    <div class="markdown">「你要不要去冒險者工會」<span class="chatlog__edited-timestamp" title="05-Sep-20 10:06 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751624423794016356" id="message-751624423794016356">
+                <div class="chatlog__content">
+                    <div class="markdown">「這兩個是道上有名的人物」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751624462889254933" id="message-751624462889254933">
+                <div class="chatlog__content">
+                    <div class="markdown">「建議先去那裏」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:07 AM</span>
+
+            <div class="chatlog__message " data-message-id="751624582384975902" id="message-751624582384975902">
+                <div class="chatlog__content">
+                    <div class="markdown">「難道他們不是真的警察？」我疑惑問</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751624677503271022" id="message-751624677503271022">
+                <div class="chatlog__content">
+                    <div class="markdown">「冒險者公會又是什麼樣的地方啊？」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="751625015052468314" id="message-751625015052468314">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">「難道他們不是真的警察？」我疑惑問
+</div><span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 「他們算是收錢辦事的黑警」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751625079644880967" id="message-751625079644880967">
+                <div class="chatlog__content">
+                    <div class="markdown">「就是可以接任物賺錢的地方」</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751625157038047264" id="message-751625157038047264">
+                <div class="chatlog__content">
+                    <div class="markdown">「我會把你送去那裏讓你定時接受訓練」<span class="chatlog__edited-timestamp" title="05-Sep-20 10:10 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:34 AM</span>
+
+            <div class="chatlog__message " data-message-id="751631276171067482" id="message-751631276171067482">
+                <div class="chatlog__content">
+                    <div class="markdown">「原來如此⋯⋯」呵呵果然遭到報應了吧「可是那個公會，我去的話有什麼好處嗎？」
+可以的話，卡莉亞特還是喜歡自由一點的生活，不想被別人約束</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751631350100131951" id="message-751631350100131951">
+                <div class="chatlog__content">
+                    <div class="markdown">「呃⋯⋯我可以不要去嗎？」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="751635972168482856" id="message-751635972168482856">
+                <div class="chatlog__content">
+                    <div class="markdown">「這就是我救你之後我你要付出的代價」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 10:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="751637541614125058" id="message-751637541614125058">
+                <div class="chatlog__content">
+                    <div class="markdown">這位大叔原來是公會推銷員來著？<img class="emoji " alt="8_" title="8_" src="https://cdn.discordapp.com/emojis/744200831255183421.png"> 
+「好吧，那我會去公會的。」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="751638923729567785" id="message-751638923729567785">
+                <div class="chatlog__content">
+                    <div class="markdown">「那我帶著你走吧」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="751641212959588382" id="message-751641212959588382">
+                <div class="chatlog__content">
+                    <div class="markdown">我跟著大叔走了
+「欸，話說回來，大叔我還不知道你的名字呢。」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="751641507966091344" id="message-751641507966091344">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="哈密瓜#6483">@不要吃哈密瓜</span> 他有知道名子嗎，背景設定<span class="chatlog__edited-timestamp" title="05-Sep-20 11:15 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="751641736031240252" id="message-751641736031240252">
+                <div class="chatlog__content">
+                    <div class="markdown">//是知道名字的吧 <span class="mention" title="waganda#7905">@歐黃</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751641911126786098" id="message-751641911126786098">
+                <div class="chatlog__content">
+                    <div class="markdown">//不然之後打聽連名字都沒有⋯</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="751642115007840306" id="message-751642115007840306">
+                <div class="chatlog__content">
+                    <div class="markdown">「我叫dio」<span class="chatlog__edited-timestamp" title="05-Sep-20 11:17 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:19 AM</span>
+
+            <div class="chatlog__message " data-message-id="751642717335060561" id="message-751642717335060561">
+                <div class="chatlog__content">
+                    <div class="markdown">//果然是你wwwwww</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751642919257243678" id="message-751642919257243678">
+                <div class="chatlog__content">
+                    <div class="markdown">「喔，dio叔。」我意思意思喊了一聲「那我們現在要去公會了嗎？」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="751643011049324614" id="message-751643011049324614">
+                <div class="chatlog__content">
+                    <div class="markdown">「對」</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="751643350041624697" id="message-751643350041624697">
+                <div class="chatlog__content">
+                    <div class="markdown">//我還要做什麼事嗎？</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="751643437878476830" id="message-751643437878476830">
+                <div class="chatlog__content">
+                    <div class="markdown">那你們就到冒險者公會了</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751643480195072031" id="message-751643480195072031">
+                <div class="chatlog__content">
+                    <div class="markdown">他把你送了進去</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751643600940695552" id="message-751643600940695552">
+                <div class="chatlog__content">
+                    <div class="markdown">並且偶爾會記信給你</div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751643702555836537" id="message-751643702555836537">
+                <div class="chatlog__content">
+                    <div class="markdown">不過那些信是突然出現在你附近的<span class="chatlog__edited-timestamp" title="05-Sep-20 11:23 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="751643798685351988" id="message-751643798685351988">
+                <div class="chatlog__content">
+                    <div class="markdown">你不知道她怎麼突然有的</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="751644583879901245" id="message-751644583879901245">
+                <div class="chatlog__content">
+                    <div class="markdown">「這些都是dio叔的信⋯⋯他到底是什麼樣的人啊？」我一邊想著一邊看信裡面的內容</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:28 AM</span>
+
+            <div class="chatlog__message " data-message-id="751644840231436390" id="message-751644840231436390">
+                <div class="chatlog__content">
+                    <div class="markdown">基本上裡面都是一些冒險事蹟之類的</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="751645719408017418" id="message-751645719408017418">
+                <div class="chatlog__content">
+                    <div class="markdown">「好厲害啊dio叔，之前我搶走他的錢包應該也是他故意讓我的吧⋯⋯」我想著</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 11:33 AM</span>
+
+            <div class="chatlog__message " data-message-id="751646185479077979" id="message-751646185479077979">
+                <div class="chatlog__content">
+                    <div class="markdown">你長大之後從櫃檯小姐那知道了他的消息</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 12:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="751658506758914159" id="message-751658506758914159">
+                <div class="chatlog__content">
+                    <div class="markdown">「是dio叔？之前也都只有他單方面寄信給我，我是不是也該去拜訪一下他呢⋯⋯」
+我向櫃檯的小姐詢問dio的消息為何</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="waganda#7905" data-user-id="686225142862708766"  style="color: rgb(241, 196, 15)" >歐黃</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 12:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="751658789048025099" id="message-751658789048025099">
+                <div class="chatlog__content">
+                    <div class="markdown">你知道他在某個冒險者協會工作</div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div><div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561849672671559680/99c0f404d1e2439b9bb6b4bd8f4aed6a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="哈密瓜#6483" data-user-id="561849672671559680"  style="color: rgb(230, 126, 34)" >不要吃哈密瓜</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-20 12:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="751660052468990095" id="message-751660052468990095">
+                <div class="chatlog__content">
+                    <div class="markdown">卡莉亞特想了想，剛好最近也沒有特別的任務，就決定前往那個冒險者協會尋找dio叔。
+<s>順便問問他什麼時候教她ZA-WORLD那招</s></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 115 message(s)</div>
+</div>
+
+</body>
+</html>
